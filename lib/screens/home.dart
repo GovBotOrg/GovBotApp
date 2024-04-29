@@ -50,7 +50,7 @@ class MyHomePage extends StatelessWidget {
                 children: [
                   ElevatedButton(onPressed: () {
                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return const TextOnly();
+                  return TextOnly();
                  }));
                   }, child: const Text("Text Only")),
                   const SizedBox(
