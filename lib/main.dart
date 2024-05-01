@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
  
 import 'package:ollygemini/screens/home.dart';
+import 'package:ollygemini/screens/splash_screens/splash1.dart';
 
 final apiKey = dotenv.env['GEMINI-API-KEY'];
 
@@ -35,14 +36,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return
+
+      MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         textTheme: GoogleFonts.interTextTheme(),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF3369FF)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+     home:  Splash1(),
+
+     //home: const MyHomePage(),
     );
   }
 }

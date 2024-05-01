@@ -39,6 +39,7 @@ flutter:
     - assets/
     - assets/images/water.jpg
     - assets/bubble.json
+    - assets/images/brobot.png
     
 
   
