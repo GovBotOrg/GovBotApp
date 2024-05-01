@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ollygemini/constants/colors.dart';
+import 'package:ollygemini/screens/auth_screens/signin.dart';
 import 'package:ollygemini/screens/widgets/custom_Button.dart';
 
 
@@ -23,7 +24,11 @@ class _Splash4State extends State<Splash4> {
               SizedBox(height: screenHeight*0.8,),
 
 
-              CustomButton(text: 'Get started', color: AppColors.primaryColor, width:298 , onPressed: (){}, radius: 30, height: 56, textColor: AppColors.white, borderColor: AppColors.primaryColor)
+              CustomButton(text: 'Get started', color: AppColors.primaryColor, width:298 , onPressed: (){
+
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Signin()));
+
+              }, radius: 30, height: 56, textColor: AppColors.white, borderColor: AppColors.primaryColor)
 
 
 
