@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ollygemini/screens/home/settings.dart';
 
+import '../widgets/custom_card.dart';
 import 'calendar.dart';
 import 'chatbot.dart';
 
@@ -13,7 +14,8 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   final String name = "John Doe";
-  final int navIndex = 0;
+  int navIndex = 0;
+
 
   final List<Widget> _navOptions = [
     Dashboard(),
@@ -22,7 +24,18 @@ class _DashboardState extends State<Dashboard> {
     Settings(),
 
 
-  ]; //items to navigate to in the navbar
+  ];//items to navigate to in the navbar
+
+
+  void whenItemTapped(index){
+    setState(() {
+
+      navIndex = index;
+
+    });
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +78,10 @@ class _DashboardState extends State<Dashboard> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: navIndex,
+        onTap: whenItemTapped,
         items: const <BottomNavigationBarItem>[
+
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -88,52 +104,4 @@ class _DashboardState extends State<Dashboard> {
   }
 }
 
-class CardWidget extends StatelessWidget {
-  final IconData icon;
-  final String text;
 
-  const CardWidget({Key? key, required this.icon, required this.text})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        // Handle card tap
-      },
-      child: Container(
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: Offset(0, 3),
-            ),
-          ],
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              icon,
-              size: 50,
-              color: Color(0xFF3369FF),
-            ),
-            SizedBox(height: 8),
-            Text(
-              text,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
