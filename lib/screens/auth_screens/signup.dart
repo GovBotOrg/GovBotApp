@@ -39,13 +39,7 @@ class _SignupState extends State<Signup> {
                 Align(alignment: Alignment.centerLeft, child: Text("Confirm Password"),),
                 CustomTextField(hintText: "", width: screenWidth, height: screenHeight*0.07, borderColor: AppColors.primaryColor ),
                // SizedBox(height: screenHeight*0.04,),
-
-
-                // Align(alignment: Alignment.centerRight, child: InkWell(
-                //   child: Text("Forgot password?"),
-                //   onTap: (){},
-                //
-                // ),),
+                
 
                 SizedBox(height: screenHeight*0.03),
                 CustomButton(text: 'Sign up', color: AppColors.primaryColor, width: screenWidth*0.9, onPressed: (){
