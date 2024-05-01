@@ -1,75 +1,141 @@
 import 'package:flutter/material.dart';
+import 'package:google_gemini/google_gemini.dart';
 import 'package:lottie/lottie.dart';
 
-import 'package:ollygemini/screens/textWithImage.dart';
-import 'package:ollygemini/screens/text_only.dart';
+import 'package:ollygemini/main.dart';
 
-class ChatBot extends StatelessWidget {
+class ChatBot extends StatefulWidget {
   const ChatBot({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
+
+  @override
+  State<ChatBot> createState() => _ChatBotState();
+}
+
+class _ChatBotState extends State<ChatBot> {
+  bool loading = false;
+  List textChat = [];
+  List textWithImageChat = [];
+
+  final TextEditingController _textController = TextEditingController();
+  final ScrollController _controller = ScrollController();
+
+  // Create Gemini Instance
+  final gemini = GoogleGemini(
+    apiKey: apiKey!,
+  );
+
+  // Text only input
+  void fromText({required String query}) {
+    setState(() {
+      loading = true;
+      textChat.add({
+        "role": "User",
+        "text": query,
+      });
+      _textController.clear();
+    });
+    scrollToTheEnd();
+
+    gemini.generateFromText(query).then((value) {
+      setState(() {
+        loading = false;
+        textChat.add({
+          "role": "Gemini",
+          "text": value.text,
+        });
+      });
+      scrollToTheEnd();
+    }).onError((error, stackTrace) {
+      setState(() {
+        loading = false;
+        textChat.add({
+          "role": "Gemini",
+          "text": error.toString(),
+        });
+      });
+      scrollToTheEnd();
+    });
+  }
+
+  void scrollToTheEnd() {
+    _controller.jumpTo(_controller.position.maxScrollExtent);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text(
-          "GovBot",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Lottie.asset('assets/bubble.json'),
-              Text(
 
-                "Welcome to the GovBot",
-                textAlign: TextAlign.center,
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineMedium!
-                    .copyWith(fontWeight: FontWeight.w600),
+        body: Column(
+
+          children: [
+            Text("Get updated info on this topic"),
+
+            Expanded(
+              child: ListView.builder(
+                controller: _controller,
+                itemCount: textChat.length,
+                padding: const EdgeInsets.only(bottom: 20),
+                itemBuilder: (context, index) {
+                  return loading
+                      ? Center(
+                    child: Lottie.asset('assets/bubble.json'),
+                  )
+                      : ListTile(
+                    isThreeLine: true,
+                    leading: CircleAvatar(
+                      child: Text(
+                        textChat[index]["role"].substring(0, 1),
+                        style:
+                        const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    title: Text(
+                      textChat[index]["role"],
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text(textChat[index]["text"]),
+                  );
+                },
               ),
-              const SizedBox(
-                height: 4,
+            ),
+            Container(
+              alignment: Alignment.bottomRight,
+              margin: const EdgeInsets.all(20),
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                border: Border.all(color: Colors.grey),
               ),
-              Text(
-                "Choose your path",
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Row(
                 children: [
-                  ElevatedButton(onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context){
-                      return TextOnly();
-                    }));
-                  }, child: const Text("Text Only")),
-                  const SizedBox(
-                    width: 10,
+                  Expanded(
+                    child: TextField(
+                      controller: _textController,
+                      decoration: InputDecoration(
+                        hintText: "Type a message",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide.none),
+                        fillColor: Colors.transparent,
+                      ),
+                      maxLines: null,
+                      keyboardType: TextInputType.multiline,
+                    ),
                   ),
-                  ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                              return const TextWithImage();
-                            }));
-                      },
-                      child: const Text("Text With Image"))
+                  IconButton(
+                    icon: loading
+                        ? const CircularProgressIndicator()
+                        : const Icon(Icons.send),
+                    onPressed: () {
+                      fromText(query: _textController.text);
+                    },
+                  ),
                 ],
-              )
-            ],
-          ),
-        ),
-      ),
-    );
+              ),
+            )
+          ],
+        ));
   }
 }
