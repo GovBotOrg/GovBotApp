@@ -69,7 +69,7 @@ class _TextOnlyState extends State<TextOnly> {
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: const Text(
-            "Gemmyverse Text Path",
+            "Chat and get info on this service",
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
