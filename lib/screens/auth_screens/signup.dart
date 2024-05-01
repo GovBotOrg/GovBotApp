@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ollygemini/constants/colors.dart';
+import 'package:ollygemini/screens/home/dashboard.dart';
 import 'package:ollygemini/screens/widgets/custom_Button.dart';
 import 'package:ollygemini/screens/widgets/custom_textfield.dart';
 
@@ -47,7 +48,10 @@ class _SignupState extends State<Signup> {
                 // ),),
 
                 SizedBox(height: screenHeight*0.03),
-                CustomButton(text: 'Sign up', color: AppColors.primaryColor, width: screenWidth*0.9, onPressed: (){}, radius: 30, height: 56, textColor: AppColors.white, borderColor: AppColors.primaryColor),
+                CustomButton(text: 'Sign up', color: AppColors.primaryColor, width: screenWidth*0.9, onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Dashboard()));
+
+                }, radius: 30, height: 56, textColor: AppColors.white, borderColor: AppColors.primaryColor),
                 SizedBox(height: screenHeight*0.03,),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -86,7 +90,11 @@ class _SignupState extends State<Signup> {
 
                     child: Row(children: [
                       Text("Don't have an account?"),
-                      InkWell(child: Text("Sign in"), onTap: (){},)
+                      InkWell(child: Text("Sign in"), onTap: (){
+
+
+
+                      },)
                     ],))
 
 
