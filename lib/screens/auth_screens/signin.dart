@@ -33,7 +33,7 @@ class _SigninState extends State<Signin> {
               SizedBox(height: screenHeight*0.02,),
 
               const Align(alignment: Alignment.centerLeft, child: Text("Password"),),
-              CustomTextField(hintText: "", width: screenWidth, height: screenHeight*0.07, borderColor: AppColors.primaryColor ),
+              CustomTextField(hintText: "", width: screenWidth, height: screenHeight*0.07, borderColor: AppColors.primaryColor ,),
               Align(alignment: Alignment.centerRight, child: InkWell(
                 child: const Text("Forgot password?"),
                 onTap: (){},

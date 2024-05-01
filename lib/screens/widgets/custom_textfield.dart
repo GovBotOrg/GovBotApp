@@ -31,13 +31,6 @@ class CustomTextField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Padding(
-          //   padding: EdgeInsets.symmetric(horizontal: 16.0),
-          //   child: Text(
-          //     hintText,
-          //    // style: TextStyle(color: Colors.grey),
-          //   ),
-          // ),
           TextField(
 
             textAlign: centerHintText ? TextAlign.center : TextAlign.start,

@@ -15,7 +15,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text(
-          "Gemmyverse",
+          "GovBot",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
@@ -28,7 +28,7 @@ class MyHomePage extends StatelessWidget {
               Lottie.asset('assets/bubble.json'),
               Text(
 
-                "Welcome to the GemmyVerse",
+                "Welcome to the GovBot",
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
                     .textTheme

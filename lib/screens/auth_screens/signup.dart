@@ -28,11 +28,11 @@ class _SignupState extends State<Signup> {
               children: [
 
                 Image.asset("assets/images/signup.png"),
-                Align(alignment: Alignment.centerLeft, child: Text("Email"),),
+                const Align(alignment: Alignment.centerLeft, child: Text("Email",textAlign: TextAlign.left,),),
                 CustomTextField(hintText: "eg John1@gmail.com", width: screenWidth, height: screenHeight*0.07, borderColor: AppColors.primaryColor ),
                 SizedBox(height: screenHeight*0.02,),
 
-                Align(alignment: Alignment.centerLeft, child: Text("Password"),),
+                const Align(alignment: Alignment.centerLeft, child: Text("Password"),),
                 CustomTextField(hintText: "", width: screenWidth, height: screenHeight*0.07, borderColor: AppColors.primaryColor ),
                 SizedBox(height: screenHeight*0.02,),
 
