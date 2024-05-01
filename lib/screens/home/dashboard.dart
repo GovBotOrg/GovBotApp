@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ollygemini/screens/home/settings.dart';
+
+import 'calendar.dart';
+import 'chatbot.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -8,18 +12,28 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  final String name = "John Doe"; // Example name
+  final String name = "John Doe";
+  final int navIndex = 0;
+
+  final List<Widget> _navOptions = [
+    Dashboard(),
+    ChatBot(),
+    Calendar(),
+    Settings(),
+
+
+  ]; //items to navigate to in the navbar
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF3369FF),
+        backgroundColor: Color(0xFF6BA8FF), // Lighter shade of blue
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             CircleAvatar(
-              backgroundImage: AssetImage('assets/profile_picture.jpg'),
+              backgroundImage: AssetImage('assets/images/bigbot.png'),
             ),
             Text("Welcome $name"),
             IconButton(
@@ -33,12 +47,20 @@ class _DashboardState extends State<Dashboard> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: GridView.count(
+          crossAxisCount: 2,
+          mainAxisSpacing: 16.0,
+          crossAxisSpacing: 16.0,
           children: [
             CardWidget(icon: Icons.local_hospital, text: "Healthcare"),
-            SizedBox(height: 16),
             CardWidget(icon: Icons.school, text: "Education"),
+            CardWidget(icon: Icons.gavel, text: "Government"),
+            CardWidget(icon: Icons.account_balance, text: "Politics"),
+            CardWidget(icon: Icons.account_balance_wallet, text: "Finance"),
+            CardWidget(icon: Icons.eco, text: "Agriculture"),
+            CardWidget(icon: Icons.add_location, text: "Religion"),
+            CardWidget(icon: Icons.sports_soccer, text: "Sports"),
+            CardWidget(icon: Icons.computer, text: "Technology"),
           ],
         ),
       ),
@@ -47,6 +69,10 @@ class _DashboardState extends State<Dashboard> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Chatbot',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
