@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ollygemini/screens/splash_screens/splash3.dart';
 import '../../constants/colors.dart';
 import '../widgets/custom_next.dart';
 
@@ -61,7 +62,7 @@ class _Splash2State extends State<Splash2> {
             right: 20,
             child: NextButton(
               onPressed: () {
-                // Navigate to the next screen or perform any action
+               Navigator.push(context, MaterialPageRoute(builder: (context) => Splash3()));
               },
             ),
           ),

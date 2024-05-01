@@ -41,6 +41,7 @@ flutter:
     - assets/bubble.json
     - assets/images/brobot.png
     - assets/images/chat1.png
+    - assets/images/bigbot.png
     
 
   
