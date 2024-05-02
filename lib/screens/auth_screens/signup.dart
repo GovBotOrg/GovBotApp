@@ -14,6 +14,13 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+
+
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
@@ -29,7 +36,11 @@ class _SignupState extends State<Signup> {
 
                 Image.asset("assets/images/signup.png"),
                 const Align(alignment: Alignment.centerLeft, child: Text("Name",textAlign: TextAlign.left,),),
-                CustomTextField(hintText: "", width: screenWidth, height: screenHeight*0.07, borderColor: AppColors.primaryColor ),
+                CustomTextField(
+
+
+
+                    hintText: "", width: screenWidth, height: screenHeight*0.07, borderColor: AppColors.primaryColor ),
                 SizedBox(height: screenHeight*0.02,),
 
                 const Align(alignment: Alignment.centerLeft, child: Text("Email"),),

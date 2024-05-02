@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 
 class CustomTextField extends StatelessWidget {
+
+  final TextEditingController? controller;
   final String hintText;
   final bool centerHintText;
   final Color color;
@@ -15,7 +17,7 @@ class CustomTextField extends StatelessWidget {
     required this.width,
     this.color = AppColors.white,
     required this.height,
-    required this.borderColor,
+    required this.borderColor, this.controller,
   });
 
   @override
@@ -32,6 +34,7 @@ class CustomTextField extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextField(
+            controller: controller,
 
             textAlign: centerHintText ? TextAlign.center : TextAlign.start,
 
