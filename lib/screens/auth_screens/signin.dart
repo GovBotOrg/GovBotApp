@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ollygemini/constants/colors.dart';
+import 'package:ollygemini/screens/auth_screens/forgot_password/forgot_password.dart';
 import 'package:ollygemini/screens/auth_screens/signup.dart';
+import 'package:ollygemini/screens/home/dashboard.dart';
 import 'package:ollygemini/screens/widgets/custom_Button.dart';
 import 'package:ollygemini/screens/widgets/custom_textfield.dart';
 
@@ -36,14 +38,18 @@ class _SigninState extends State<Signin> {
               CustomTextField(hintText: "", width: screenWidth, height: screenHeight*0.07, borderColor: AppColors.primaryColor ,),
               Align(alignment: Alignment.centerRight, child: InkWell(
                 child: const Text("Forgot password?"),
-                onTap: (){},
+                onTap: (){
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassword()));
+
+                },
 
               ),),
 
               SizedBox(height: screenHeight*0.06),
               CustomButton(text: 'Sign in', color: AppColors.primaryColor, width: screenWidth*0.9, onPressed: (){
 
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> const Signup()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> const Dashboard()));
 
               }, radius: 30, height: 56, textColor: AppColors.white, borderColor: AppColors.primaryColor),
               SizedBox(height: screenHeight*0.05,),
@@ -85,6 +91,7 @@ class _SigninState extends State<Signin> {
                  child: Row(children: [
                const Text("Don't have an account?"),
                InkWell(child: const Text("Signup"), onTap: (){
+                 Navigator.push(context, MaterialPageRoute(builder: (context) => Signup()));
 
 
                },)

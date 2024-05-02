@@ -85,6 +85,7 @@ class _SignupState extends State<Signup> {
                     child: Row(children: [
                       Text("Don't have an account?"),
                       InkWell(child: Text("Sign in"), onTap: (){
+                        Navigator.pop(context);
 
 
 
