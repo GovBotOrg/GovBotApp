@@ -13,76 +13,83 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: true,
+      //  automaticallyImplyLeading: true,
         title: Text("Settings"),
         centerTitle: true,
       ),
 
-      body: Container(
-        child: const Column(
-          children: [
-            
-            ListTile(
-              leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
-              title: Text("Dark Mode"),
-              trailing: Icon(Icons.toggle_off_outlined),
+      body: SingleChildScrollView(
+        child: Container(
+          child: const Column(
+            children: [
+
+             // Center(child: Text("Settings"),),
 
               
-            ),
-            ListTile(
-              leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
-              title: Text("Dark Mode"),
-              trailing: Icon(Icons.toggle_off_outlined),
-
-            ),
-            ListTile(
-              leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
-              title: Text("Language"),
-              trailing: Icon(Icons.toggle_off_outlined),
-
-            ),
-            ListTile(
-              leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
-              title: Text("Notificatins"),
-              trailing: Icon(Icons.toggle_off_outlined),
-
-            ),
-            ListTile(
-              leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
-              title: Text("FAQs"),
-              trailing: Icon(Icons.toggle_off_outlined),
-
-            ),
 
 
 
+              ListTile(
+                leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
+                title: Text("Dark Mode"),
+                trailing: Icon(Icons.toggle_off_outlined),
 
-            ListTile(
-              leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
-              title: Text("About"),
-              trailing: Icon(Icons.toggle_off_outlined),
 
-            ),
-            ListTile(
-              leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
-              title: Text("Terms of Services"),
-              trailing: Icon(Icons.toggle_off_outlined),
+              ),
+              ListTile(
+                leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
+                title: Text("Dark Mode"),
+                trailing: Icon(Icons.toggle_off_outlined),
 
-            ),
-            ListTile(
-              leading: CircleAvatar( child: Icon(Icons.lock), ),
-              title: Text("Privacy Policy"),
-              trailing: Icon(Icons.toggle_off_outlined),
+              ),
+              ListTile(
+                leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
+                title: Text("Language"),
+                trailing: Icon(Icons.toggle_off_outlined),
 
-            ),
+              ),
+              ListTile(
+                leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
+                title: Text("Notificatins"),
+                trailing: Icon(Icons.toggle_off_outlined),
+
+              ),
+              ListTile(
+                leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
+                title: Text("FAQs"),
+                trailing: Icon(Icons.toggle_off_outlined),
+
+              ),
 
 
 
 
-          ],
+              ListTile(
+                leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
+                title: Text("About"),
+                trailing: Icon(Icons.toggle_off_outlined),
+
+              ),
+              ListTile(
+                leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
+                title: Text("Terms of Services"),
+                trailing: Icon(Icons.toggle_off_outlined),
+
+              ),
+              ListTile(
+                leading: CircleAvatar( child: Icon(Icons.lock), ),
+                title: Text("Privacy Policy"),
+                trailing: Icon(Icons.toggle_off_outlined),
+
+              ),
+
+
+
+
+            ],
+          ),
         ),
-      ),
-
+      )
 
 
 

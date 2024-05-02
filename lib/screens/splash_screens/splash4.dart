@@ -21,6 +21,9 @@ class _Splash4State extends State<Splash4> {
         child: Center(
           child: Column(
             children: [
+
+              Image.asset("assets/images/woman2", height: screenHeight*0.4,),
+
               SizedBox(height: screenHeight*0.8,),
 
 

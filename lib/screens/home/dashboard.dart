@@ -19,7 +19,7 @@ class _DashboardState extends State<Dashboard> {
 
   final List<Widget> _navOptions = [
     DashboardScreen(),
-    ChatBot(msg: "",),
+    ChatBot(msg: ".",),
     Calendar(),
     Settings(),
   ];
@@ -69,12 +69,12 @@ class _DashboardState extends State<Dashboard> {
             label: 'Chatbot',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.calendar_today),
             label: 'Calendar',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
       ),

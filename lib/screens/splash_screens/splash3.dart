@@ -17,8 +17,8 @@ class Splash3 extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/images/bigbot.png',
-                height: screenHeight * 0.6,
-                width: screenWidth,
+                height: screenHeight * 0.4,
+                //width: screenWidth,
                 fit: BoxFit.fill,
               ),
               SizedBox(height: screenHeight * 0.05),

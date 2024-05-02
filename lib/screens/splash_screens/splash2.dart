@@ -28,7 +28,7 @@ class _Splash2State extends State<Splash2> {
                 children: [
                   // Asset image
                   Image.asset(
-                    'assets/images/chat1.png',
+                    'assets/images/woman.png',
                     height: screenHeight * 0.45,
                     width: screenWidth,
                     fit: BoxFit.fill,
