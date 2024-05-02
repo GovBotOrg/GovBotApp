@@ -27,7 +27,7 @@ class _ResetPasswordState extends State<ResetPassword> {
             child: Column(
               children: [
 
-              //  Image.asset("assets/images/signup.png"),
+
                 Text("New Password", style: TextStyle(fontSize: 40),),
                 SizedBox(height: screenHeight*0.1,),
                 const Align(alignment: Alignment.centerLeft, child: Text("Email",textAlign: TextAlign.left,),),

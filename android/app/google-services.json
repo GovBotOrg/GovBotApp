@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "791257657630",
+    "project_id": "govbot-37708",
+    "storage_bucket": "govbot-37708.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791257657630:android:086e1043d830e78a83990f",
+        "android_client_info": {
+          "package_name": "com.example.ollygemin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6pYmeKkWEMq3HMwi_SbVW6d3OF5RFyw0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
