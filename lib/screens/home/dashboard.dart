@@ -19,7 +19,7 @@ class _DashboardState extends State<Dashboard> {
 
   final List<Widget> _navOptions = [
     DashboardScreen(),
-    ChatBot(msg: ".",),
+    ChatBot(msg: "",),
     Calendar(),
     Settings(),
   ];

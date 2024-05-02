@@ -1,98 +1,100 @@
 import 'package:flutter/material.dart';
 
+import '../../constants/colors.dart';
+import '../widgets/build_settings_tile.dart';
 
-class Settings extends StatefulWidget {
-  const Settings({super.key});
+class Settings extends StatelessWidget {
+  const Settings({Key? key}) : super(key: key);
 
-  @override
-  State<Settings> createState() => _SettingsState();
-}
-
-class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
-      //  automaticallyImplyLeading: true,
         title: Text("Settings"),
+        automaticallyImplyLeading: false,
         centerTitle: true,
       ),
-
       body: SingleChildScrollView(
-        child: Container(
-          child: const Column(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 7.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-
-             // Center(child: Text("Settings"),),
-
-              
-
-
-
-              ListTile(
-                leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
-                title: Text("Dark Mode"),
-                trailing: Icon(Icons.toggle_off_outlined),
-
-
+              SizedBox(height: screenHeight * 0.05),
+              CircleAvatar(
+                radius: 45,
+                backgroundColor: Colors.grey[300],
+                child: Icon(Icons.person),
               ),
-              ListTile(
-                leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
-                title: Text("Dark Mode"),
-                trailing: Icon(Icons.toggle_off_outlined),
-
+           //   SizedBox(height: 16.0),
+              Text(
+                "Bere",
+                style: TextStyle(
+               //   color: Colors.black,
+                  fontSize: 19,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              ListTile(
-                leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
-                title: Text("Language"),
-                trailing: Icon(Icons.toggle_off_outlined),
-
+             // SizedBox(height: 16.0),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  "Edit",
+                  style: TextStyle(color: AppColors.white),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.primaryColor,
+                ),
               ),
-              ListTile(
-                leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
-                title: Text("Notificatins"),
+              SizedBox(height: screenHeight * 0.035),
+              buildSettingsTile(
+                leading: Image.asset("assets/images/moon.png"),
+                title: "Dark Mode",
                 trailing: Icon(Icons.toggle_off_outlined),
-
               ),
-              ListTile(
-                leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
-                title: Text("FAQs"),
+              buildSettingsTile(
+                leading: Icon(Icons.language),
+                title: "Language",
+                trailing: Icon(Icons.arrow_forward),
+              ),
+              buildSettingsTile(
+                leading: Icon(Icons.lock),
+                title: "Privacy Policy",
+                trailing: Icon(Icons.arrow_forward),
+              ),
+              buildSettingsTile(
+                leading: Icon(Icons.shield_moon),
+                title: "Notifications",
+                trailing: Icon(Icons.arrow_forward),
+              ),
+              buildSettingsTile(
+                leading: Icon(Icons.request_page),
+                title: "Terms of Service",
+                trailing: Icon(Icons.arrow_forward),
+              ),
+              buildSettingsTile(
+                leading: Icon(Icons.question_mark_outlined),
+                title: "FAQs",
+                trailing: Icon(Icons.arrow_forward),
+              ),
+              buildSettingsTile(
+                leading: Icon(Icons.shield_moon),
+                title: "About",
                 trailing: Icon(Icons.toggle_off_outlined),
-
               ),
-
-
-
-
-              ListTile(
-                leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
-                title: Text("About"),
+              buildSettingsTile(
+                leading: Icon(Icons.shield_moon),
+                title: "Terms of Services",
                 trailing: Icon(Icons.toggle_off_outlined),
-
               ),
-              ListTile(
-                leading: CircleAvatar(child: Icon(Icons.shield_moon), ),
-                title: Text("Terms of Services"),
-                trailing: Icon(Icons.toggle_off_outlined),
-
-              ),
-              ListTile(
-                leading: CircleAvatar( child: Icon(Icons.lock), ),
-                title: Text("Privacy Policy"),
-                trailing: Icon(Icons.toggle_off_outlined),
-
-              ),
-
-
-
-
             ],
           ),
         ),
-      )
-
-
-
+      ),
     );
   }
+
+
 }

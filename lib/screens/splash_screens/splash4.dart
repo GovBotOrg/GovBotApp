@@ -17,30 +17,37 @@ class _Splash4State extends State<Splash4> {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Container(
-        child: Center(
-          child: Column(
-            children: [
+      body: SingleChildScrollView(
+        child: Container(
+          child: Center(
+            child: Column(
+              children: [
+                SizedBox(height: screenHeight*0.2,),
 
-              Image.asset("assets/images/woman2", height: screenHeight*0.4,),
+                Image.asset("assets/images/woman2.png", height: screenHeight*0.45,),
+                SizedBox(height: screenHeight*0.08,),
 
-              SizedBox(height: screenHeight*0.8,),
+                Text("Hello ma kontri pipo dem how for wena"),
 
-
-              CustomButton(text: 'Get started', color: AppColors.primaryColor, width:298 , onPressed: (){
-
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Signin()));
-
-              }, radius: 30, height: 56, textColor: AppColors.white, borderColor: AppColors.primaryColor)
+                SizedBox(height: screenHeight*0.13,),
 
 
 
+                CustomButton(text: 'Get started', color: AppColors.primaryColor, width:298 , onPressed: (){
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Signin()));
+
+                }, radius: 30, height: 56, textColor: AppColors.white, borderColor: AppColors.primaryColor)
 
 
 
-            ],
+
+
+
+              ],
+            ),
           ),
-        ),
+        )
       )
     );
   }
