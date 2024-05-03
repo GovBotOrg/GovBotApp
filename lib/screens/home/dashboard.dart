@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:ollygemini/constants/colors.dart';
 import 'package:ollygemini/screens/home/settings.dart';
 
 import '../widgets/custom_card.dart';
@@ -38,10 +39,13 @@ class _DashboardState extends State<Dashboard> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            CircleAvatar(
-              backgroundImage: AssetImage('assets/images/bigbot.png'),
-            ),
-            Text("Welcome $name"),
+           InkWell(
+             onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Settings()));},
+
+             child:  CircleAvatar(
+             backgroundImage: AssetImage('assets/images/bigbot.png'),
+           ),),
+            Text("Welcome "),
             IconButton(
               onPressed: () {
                 Navigator.push(
@@ -61,19 +65,19 @@ class _DashboardState extends State<Dashboard> {
         selectedItemColor: primaryColor, // Use primary color for selected item
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'DashBoardScreen',
+            icon: Icon(Icons.home, color: AppColors.primaryColor,),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
+            icon: Icon(Icons.chat,  color: AppColors.primaryColor,),
             label: 'Chatbot',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
+            icon: Icon(Icons.calendar_today, color: AppColors.primaryColor,),
             label: 'Calendar',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.settings, color: AppColors.primaryColor,),
             label: 'Settings',
           ),
         ],
@@ -92,16 +96,36 @@ class DashboardScreen extends StatelessWidget {
         mainAxisSpacing: 16.0,
         crossAxisSpacing: 16.0,
         children: [
-          CardWidget(icon: Icons.local_hospital, text: "Healthcare", msg:  "What is the state of healthcare in Cameroon"),
-          CardWidget(icon: Icons.school, text: "Education", msg:  "What is the state of Education in Cameroon"),
-          CardWidget(icon: Icons.gavel, text: "Government",  msg:  "What is the state of Education in Cameroon" ),
-          CardWidget(icon: Icons.account_balance, text: "Politics",  msg:  "What is the state of Education in Cameroon"),
-          CardWidget(icon: Icons.account_balance_wallet, text: "Finance",  msg:  "What is the state of Education in Cameroon"),
-          CardWidget(icon: Icons.eco, text: "Agriculture",  msg:  "What is the state of Education in Cameroon"),
-          CardWidget(icon: Icons.add_location, text: "Religion",  msg:  "What is the state of Education in Cameroon"),
-          CardWidget(icon: Icons.sports_soccer, text: "Sports",  msg:  "What is the state of Education in Cameroon"),
-          CardWidget(icon: Icons.computer, text: "Technology",  msg:  "What is the state of Education in Cameroon"),
-        ],
+
+
+          CardWidget(icon: Icons.local_hospital, text: "Healthcare", msg: "What is the state of healthcare in Cameroon"),
+          CardWidget(icon: Icons.school, text: "Education", msg: "What is the state of Education in Cameroon"),
+          CardWidget(icon: Icons.gavel, text: "Government", msg: "What is the state of Government in Cameroon"),
+          CardWidget(icon: Icons.account_balance, text: "Politics", msg: "What is the state of Politics in Cameroon in 2024"),
+          CardWidget(icon: Icons.account_balance_wallet, text: "Finance", msg: "What is the econonmic power of Cameroon recently"),
+          CardWidget(icon: Icons.eco, text: "Agriculture", msg: "What is the  role of the state in griculture in Cameroon"),
+          CardWidget(icon: Icons.add_location, text: "Religion", msg: "What is the state of Religion in Cameroon"),
+          CardWidget(icon: Icons.sports_soccer, text: "Sports", msg: "What is the state of Sports in Cameroon"),
+          CardWidget(icon: Icons.computer, text: "Technology", msg: "What are the modalities to create a tech startup in Cameroon"),
+          CardWidget(icon: Icons.apartment, text: "Infrastructure", msg: "What infrastructure is being built in Cameroon as from 2024"),
+          CardWidget(icon: Icons.eco, text: "Environment", msg: "How can I access the ministry of environment with an eco friendly project"),
+          CardWidget(icon: Icons.favorite, text: "Social Welfare", msg: "What Social Welfare services are offered in Cameroon"),
+          CardWidget(icon: Icons.directions_car, text: "Transportation", msg: "What is the state of Transportation in Cameroon"),
+          CardWidget(icon: Icons.language, text: "English to French", msg: "Translate between English and French with ease."),
+          CardWidget(icon: Icons.chat, text: "Pidgin Chat", msg: "I want tok with you for Cameroon pidgin. Hafa"),
+          CardWidget(icon: Icons.monetization_on, text: "Grants&Funding", msg: "Explore available grants and funding opportunities for various sectors."),
+
+
+          //   CardWidget(icon: Icons.local_hospital, text: "Healthcare", msg:  "What is the state of healthcare in Cameroon"),
+        //   CardWidget(icon: Icons.school, text: "Education", msg:  "What is the state of Education in Cameroon"),
+        //   CardWidget(icon: Icons.gavel, text: "Government",  msg:  "What is the state of Education in Cameroon" ),
+        //   CardWidget(icon: Icons.account_balance, text: "Politics",  msg:  "What is the state of Education in Cameroon"),
+        //   CardWidget(icon: Icons.account_balance_wallet, text: "Finance",  msg:  "What is the state of Education in Cameroon"),
+        //   CardWidget(icon: Icons.eco, text: "Agriculture",  msg:  "What is the state of Education in Cameroon"),
+        //   CardWidget(icon: Icons.add_location, text: "Religion",  msg:  "What is the state of Education in Cameroon"),
+        //   CardWidget(icon: Icons.sports_soccer, text: "Sports",  msg:  "What is the state of Education in Cameroon"),
+        //   CardWidget(icon: Icons.computer, text: "Technology",  msg:  "What is the state of Education in Cameroon"),
+         ],
       ),
     );
   }

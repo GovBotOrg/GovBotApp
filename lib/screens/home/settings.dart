@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ollygemini/screens/home/edit_profile.dart';
 
 import '../../constants/colors.dart';
 import '../widgets/build_settings_tile.dart';
@@ -39,7 +40,7 @@ class Settings extends StatelessWidget {
               ),
              // SizedBox(height: 16.0),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) =>EditProfile()));},
                 child: Text(
                   "Edit",
                   style: TextStyle(color: AppColors.white),

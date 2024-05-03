@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyD8xD0iG9V2dOm67lHqPv4q5DS8CNsYpyE</string>
+	<string>AIzaSyBGaOsZS5flCD7JwJJjoSCARMeF-HsBMyA</string>
 	<key>GCM_SENDER_ID</key>
-	<string>791257657630</string>
+	<string>432518191581</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.ollygemini</string>
 	<key>PROJECT_ID</key>
-	<string>govbot-37708</string>
+	<string>govbot-6a168</string>
 	<key>STORAGE_BUCKET</key>
-	<string>govbot-37708.appspot.com</string>
+	<string>govbot-6a168.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:791257657630:ios:bfe0cad21174959083990f</string>
+	<string>1:432518191581:ios:2964d634ff52d582b27e34</string>
 </dict>
 </plist>

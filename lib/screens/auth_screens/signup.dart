@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ollygemini/constants/colors.dart';
 import 'package:ollygemini/screens/home/dashboard.dart';
 import 'package:ollygemini/screens/widgets/custom_Button.dart';
 import 'package:ollygemini/screens/widgets/custom_textfield.dart';
+import 'package:ollygemini/services/firebase_auth_services.dart';
 
 
 
@@ -15,9 +17,23 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
 
+
+
+///creating an instance of firebase services
+  final FirebaseAuthService _auth = FirebaseAuthService();
+
+
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
 
 
@@ -37,6 +53,7 @@ class _SignupState extends State<Signup> {
                 Image.asset("assets/images/signup.png"),
                 const Align(alignment: Alignment.centerLeft, child: Text("Name",textAlign: TextAlign.left,),),
                 CustomTextField(
+                  controller: nameController,
 
 
 
@@ -44,19 +61,25 @@ class _SignupState extends State<Signup> {
                 SizedBox(height: screenHeight*0.02,),
 
                 const Align(alignment: Alignment.centerLeft, child: Text("Email"),),
-                CustomTextField(hintText: "", width: screenWidth, height: screenHeight*0.07, borderColor: AppColors.primaryColor ),
+                CustomTextField(
+                    controller: emailController,
+                    hintText: "", width: screenWidth, height: screenHeight*0.07, borderColor: AppColors.primaryColor ),
                 SizedBox(height: screenHeight*0.02,),
 
                 Align(alignment: Alignment.centerLeft, child: Text("Password"),),
-                CustomTextField(hintText: "", width: screenWidth, height: screenHeight*0.07, borderColor: AppColors.primaryColor ),
+                CustomTextField(
+                    controller: passwordController,
+                    hintText: "", width: screenWidth, height: screenHeight*0.07, borderColor: AppColors.primaryColor ),
                // SizedBox(height: screenHeight*0.04,),
 
 
                 SizedBox(height: screenHeight*0.03),
-                CustomButton(text: 'Sign up', color: AppColors.primaryColor, width: screenWidth*0.9, onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Dashboard()));
+                CustomButton(text: 'Sign up', color: AppColors.primaryColor, width: screenWidth*0.9, onPressed: _signUp,
+                  //   (){
+                  // Navigator.push(context, MaterialPageRoute(builder: (context) => Dashboard()));
+                  // },
 
-                }, radius: 30, height: 56, textColor: AppColors.white, borderColor: AppColors.primaryColor),
+                    radius: 30, height: 56, textColor: AppColors.white, borderColor: AppColors.primaryColor),
                 SizedBox(height: screenHeight*0.03,),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -108,4 +131,26 @@ class _SignupState extends State<Signup> {
 
     );
   }
+
+  void _signUp() async{
+
+    String userName = nameController.text;
+    String password = passwordController.text;
+    String email = emailController.text;
+
+    User? user = await _auth.signInWithEmailAndPassword(email, password);
+
+    if(user != null){
+      print("User successfully created");
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Dashboard()));
+
+    }else{
+      print("some error happened");
+    }
+
+  }
+
+
+
+
 }

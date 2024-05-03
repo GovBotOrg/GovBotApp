@@ -46,7 +46,7 @@ class _Splash2State extends State<Splash2> {
                   SizedBox(height: screenHeight * 0.05),
                   // Second Text
                   const Text(
-                    "Using this software, you can ask your questions and receive articles using artificial intelligence assistant",
+                    "Empower Yourself, Empower Cameroon: With GovBot, access essential government services . Let's journey together towards a brighter future!",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 18,

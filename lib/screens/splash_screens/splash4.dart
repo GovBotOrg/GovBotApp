@@ -19,6 +19,7 @@ class _Splash4State extends State<Splash4> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
+          padding: EdgeInsets.only(left: 12, right: 12),
           child: Center(
             child: Column(
               children: [
@@ -27,9 +28,18 @@ class _Splash4State extends State<Splash4> {
                 Image.asset("assets/images/woman2.png", height: screenHeight*0.45,),
                 SizedBox(height: screenHeight*0.08,),
 
-                Text("Hello ma kontri pipo dem how for wena"),
+                Text("Hello ma kontri pipo dem how for wena!", textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.grey,
+                  ),),
+                Text("Accessible AI for All: GovBot - Your Essential Guide to Cameroon's Government Services.",textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.grey,
+                  ),),
 
-                SizedBox(height: screenHeight*0.13,),
+                SizedBox(height: screenHeight*0.08,),
 
 
 
@@ -37,7 +47,8 @@ class _Splash4State extends State<Splash4> {
 
                   Navigator.push(context, MaterialPageRoute(builder: (context) => Signin()));
 
-                }, radius: 30, height: 56, textColor: AppColors.white, borderColor: AppColors.primaryColor)
+                }, radius: 30, height: 56, textColor: AppColors.white, borderColor: AppColors.primaryColor),
+                SizedBox(height: screenHeight*0.02,),
 
 
 

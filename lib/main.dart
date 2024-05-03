@@ -27,10 +27,10 @@ Future<String> generateContent() async {
   return response.text ?? ''; // Return the generated text
 }
 
-void main() async {
+void main() {
   generateContent();
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  Firebase.initializeApp();
   runApp(const MyApp());
 }
 

@@ -22,6 +22,16 @@ class Splash3 extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
               SizedBox(height: screenHeight * 0.05),
+              Center(child: Text(
+
+                  "AI for the People, by the People: GovBot empowers every citizen with the transformative potential of AI,making essential government services effortlessly accessible to all.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey,
+                ),
+
+              ),),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
